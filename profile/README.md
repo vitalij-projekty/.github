@@ -16,6 +16,7 @@ Zdrojový kód soukromých projektů rád zpřístupním na požádání.
 | **CarKeeper** *(pracovní název)* | péče o auto: hlídá STK, servis a přezutí, nabídky servisů v okolí s odhadem ceny a rezervací; AI hlasový agent domluví termín za řidiče | mobilní appka + cloud, hlasová AI (výběr dodavatele probíhá) | 📋 **analýza** hotová (15. 11. 2026) | [níže](#carkeeper) |
 | **Sportka** | stahování výsledků loterie, statistická analýza, generátor tiketů a backtest | Python | ✅ **v provozu** od 3. 6. 2026, denní automatický běh | [repo](https://github.com/vitalij-projekty/sportka) |
 | **Trading bot** | boty nad MetaTrader 5 pro prop-firmu FTMO, dashboard, série backtestů | Python, MT5, pandas | ⏸️ **pozastaveno** – výzkum uzavřen (17 hypotéz, ~290 konfigurací, bez ověřitelné hrany) | [repo](https://github.com/vitalij-projekty/trading-bot) |
+| **Strážce hovorů** *(pracovní název)* | ochrana před telefonními podvody: přepis příchozích i odchozích hovorů v reálném čase, AI průběžně hodnotí riziko podvodu a pozná i volajícího AI agenta nebo napodobený hlas | mobilní appka, přepis řeči, LLM (výběr technologie proběhne v analýze) | 💡 **nápad** – ve zpracování, příprava analýzy (od 15. 11. 2026) | [níže](#strážce-hovorů) |
 | **Databáze investorů** | úloha k pohovoru: návrh spolehlivé databáze investorů, pilot 43 investorů v ČR, měření přesnosti | AI rešerše, Excel/CSV | ✅ **hotovo** (10/2026) | [repo](https://github.com/Fredy1989/investor-db) |
 
 ## WristRadar
@@ -43,6 +44,15 @@ domluví za řidiče; přepis a shrnutí hovorů i faktury tvoří kompletní hi
 - **Zajímavé:** analýza parkování ukázala obsazený trh plateb a fyzické bariéry (závory, turnikety, přístupové
   karty) → záměrný přechod na produkt bez hardwaru; data o STK podle VIN stát volně neposkytuje, proto zadání auta
   fotkou technického průkazu a faktur.
+
+## Strážce hovorů
+Aplikace poslouchá hovor (s výslovným souhlasem uživatele), přepisuje ho a AI bot průběžně hledá znaky podvodu:
+„bezpečný účet“, časový tlak, žádost o PIN nebo kód z SMS, instalaci aplikace pro vzdálený přístup, vydávání se
+za banku, policii nebo příbuzného. Druhým cílem je poznat, že volá jiný AI agent nebo napodobený hlas blízké osoby.
+Při podezření nenápadně upozorní uživatele, navrhne kontrolní otázku a volitelně dá vědět rodině.
+- **Milníky:** nápad 15. 11. 2026 · analýza v přípravě.
+- **Hlavní otázky pro analýzu:** přístup ke zvuku hovoru (iOS ho běžným aplikacím nedává, Android nahrávání hovorů
+  omezuje), souhlas s nahráváním a GDPR, zpracování přímo v telefonu kvůli soukromí.
 
 ## Jak pracuji s AI
 - Já: produkt, rozhodnutí, testování na reálných zařízeních, komunikace s obchody (App Store, Google Play).
