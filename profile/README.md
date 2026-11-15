@@ -13,7 +13,7 @@ Zdrojový kód soukromých projektů rád zpřístupním na požádání.
 | **WristRadar Watch** | skupinový lokátor na hodinkách: šipka a vzdálenost k přátelům | Swift/SwiftUI, Kotlin/Compose, Firebase | ✅ **vydáno** v App Store (26. 10. 2026); Wear OS v uzavřeném testu na Google Play | [ukázka](https://github.com/Fredy1989/wristradar-showcase) |
 | **WristRadar Phone** | telefonní verze WristRadaru, společné skupiny s hodinkami | Swift, Kotlin (sdílené jádro s hodinkami) | 🛠️ **vývoj** – testovací verze iPhone i Android hotové, smíšená skupina telefon ↔ hodinky ověřena na reálných zařízeních | [ukázka](https://github.com/Fredy1989/wristradar-showcase) |
 | **Driver Alert** | trenér bdělosti řidiče: riziko únavy ze spánku a času jízdy, hlasové kontroly, vibrace na hodinkách | Swift, Kotlin, Apple Zdraví / Health Connect | 🛠️ **vývoj** od 15. 11. 2026 – jádro (model rizika a detekce jízdy na iOS i Androidu), první verze appky pro iPhone a pro Android (sledování jízdy z GPS, ověřeno na emulátoru) | [níže](#driver-alert) |
-| **Smart Parking** | hlasový parkovací asistent pro Prahu: zóna, cena, max. doba, připomenutí na hodinkách | Swift, Kotlin, otevřená data Golemio | 📋 **analýza a specifikace** hotové | [níže](#smart-parking) |
+| **CarKeeper** *(pracovní název)* | péče o auto: hlídá STK, servis a přezutí, nabídky servisů v okolí s odhadem ceny a rezervací; AI hlasový agent domluví termín za řidiče | mobilní appka + cloud, hlasová AI (výběr dodavatele probíhá) | 📋 **analýza** hotová (15. 11. 2026) | [níže](#carkeeper) |
 | **Sportka** | stahování výsledků loterie, statistická analýza, generátor tiketů a backtest | Python | ✅ **v provozu** od 3. 6. 2026, denní automatický běh | [repo](https://github.com/vitalij-projekty/sportka) |
 | **Trading bot** | boty nad MetaTrader 5 pro prop-firmu FTMO, dashboard, série backtestů | Python, MT5, pandas | ⏸️ **pozastaveno** – výzkum uzavřen (17 hypotéz, ~290 konfigurací, bez ověřitelné hrany) | [repo](https://github.com/vitalij-projekty/trading-bot) |
 | **Databáze investorů** | úloha k pohovoru: návrh spolehlivé databáze investorů, pilot 43 investorů v ČR, měření přesnosti | AI rešerše, Excel/CSV | ✅ **hotovo** (10/2026) | [repo](https://github.com/Fredy1989/investor-db) |
@@ -35,12 +35,14 @@ doplněný hlasovými kontrolními otázkami s měřením reakce a vibracemi na 
 - **Zajímavé:** stejná pravidla na dvou platformách hlídají sdílené testovací vektory (JSON), které musí projít iOS
   i Android; důraz na právo (žádná zdravotní tvrzení, GDPR – údaje o zdraví jen v zařízení) a bezpečnost za jízdy.
 
-## Smart Parking
-Po zaparkování v Praze appka sama pozná zónu placeného stání, řekne cenu a maximální dobu, zapamatuje si polohu
-auta a před koncem zaplaceného času upozorní na telefonu i hodinkách. Placení předává do existujících appek.
-- **Milníky:** analýza 14. 11. 2026 · specifikace a testovací vektory 15. 11. 2026 · vývoj po Driver Alertu.
-- **Zajímavé:** analýza ukázala, že placení vlastní appkou vyžaduje smlouvu s městem → záměrně menší, ale
-  realizovatelný produkt; data zón z otevřených dat Golemio přes vlastní noční převod (API klíč nesmí být v appce).
+## CarKeeper
+Aplikace hlídá termíny auta (STK, servis, přezutí, pojištění), z historie a kilometrů vyhodnotí, co je potřeba,
+a nabídne servisy v okolí s termínem a odhadem ceny. Servisům bez online rezervace zavolá AI hlasový agent a termín
+domluví za řidiče; přepis a shrnutí hovorů i faktury tvoří kompletní historii auta.
+- **Milníky:** analýza chytrého parkování 14.–15. 11. 2026 → změna směru · analýza CarKeeper 15. 11. 2026.
+- **Zajímavé:** analýza parkování ukázala obsazený trh plateb a fyzické bariéry (závory, turnikety, přístupové
+  karty) → záměrný přechod na produkt bez hardwaru; data o STK podle VIN stát volně neposkytuje, proto zadání auta
+  fotkou technického průkazu a faktur.
 
 ## Jak pracuji s AI
 - Já: produkt, rozhodnutí, testování na reálných zařízeních, komunikace s obchody (App Store, Google Play).
