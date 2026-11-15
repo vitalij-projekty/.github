@@ -12,7 +12,7 @@ Zdrojový kód soukromých projektů rád zpřístupním na požádání.
 |---|---|---|---|---|
 | **WristRadar Watch** | skupinový lokátor na hodinkách: šipka a vzdálenost k přátelům | Swift/SwiftUI, Kotlin/Compose, Firebase | ✅ **vydáno** v App Store (26. 10. 2026); Wear OS v uzavřeném testu na Google Play | [ukázka](https://github.com/Fredy1989/wristradar-showcase) |
 | **WristRadar Phone** | telefonní verze WristRadaru, společné skupiny s hodinkami | Swift, Kotlin (sdílené jádro s hodinkami) | 🛠️ **vývoj** – testovací verze iPhone i Android hotové, smíšená skupina telefon ↔ hodinky ověřena na reálných zařízeních | [ukázka](https://github.com/Fredy1989/wristradar-showcase) |
-| **Driver Alert** | trenér bdělosti řidiče: riziko únavy ze spánku a času jízdy, hlasové kontroly, vibrace na hodinkách | Swift, Kotlin, Apple Zdraví / Health Connect | 🛠️ **vývoj** od 15. 11. 2026 – jádro (model rizika na iOS i Androidu, detekce jízdy) a první verze appky pro iPhone | [níže](#driver-alert) |
+| **Driver Alert** | trenér bdělosti řidiče: riziko únavy ze spánku a času jízdy, hlasové kontroly, vibrace na hodinkách | Swift, Kotlin, Apple Zdraví / Health Connect | 🛠️ **vývoj** od 15. 11. 2026 – jádro (model rizika a detekce jízdy na iOS i Androidu), první verze appky pro iPhone a pro Android (sledování jízdy z GPS, ověřeno na emulátoru) | [níže](#driver-alert) |
 | **Smart Parking** | hlasový parkovací asistent pro Prahu: zóna, cena, max. doba, připomenutí na hodinkách | Swift, Kotlin, otevřená data Golemio | 📋 **analýza a specifikace** hotové | [níže](#smart-parking) |
 | **Sportka** | stahování výsledků loterie, statistická analýza, generátor tiketů a backtest | Python | ✅ **v provozu** od 3. 6. 2026, denní automatický běh | [repo](https://github.com/vitalij-projekty/sportka) |
 | **Trading bot** | boty nad MetaTrader 5 pro prop-firmu FTMO, dashboard, série backtestů | Python, MT5, pandas | ⏸️ **pozastaveno** – výzkum uzavřen (17 hypotéz, ~290 konfigurací, bez ověřitelné hrany) | [repo](https://github.com/vitalij-projekty/trading-bot) |
@@ -30,7 +30,8 @@ nemají dostatečnou přesnost) jde o transparentní model rizika ze spánku, do
 doplněný hlasovými kontrolními otázkami s měřením reakce a vibracemi na hodinkách.
 - **Milníky:** analýza trhu a technologií 14. 11. 2026 · specifikace schválena 15. 11. 2026 · jádro (model rizika)
   hotové a otestované 15. 11. 2026 · nezávislé specifikace obou AI agentů porovnány a sloučeny 15. 11. 2026 ·
-  první verze appky pro iPhone (simulátor) 15. 11. 2026 · MVP plánováno na leden 2027.
+  první verze appky pro iPhone (simulátor) 15. 11. 2026 · Android: služba za jízdy s GPS, rozpoznáním jízdy
+  a ukládáním jízd, ověřeno na emulátoru Androidu 16, 15. 11. 2026 · MVP plánováno na leden 2027.
 - **Zajímavé:** stejná pravidla na dvou platformách hlídají sdílené testovací vektory (JSON), které musí projít iOS
   i Android; důraz na právo (žádná zdravotní tvrzení, GDPR – údaje o zdraví jen v zařízení) a bezpečnost za jízdy.
 
