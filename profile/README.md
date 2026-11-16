@@ -50,7 +50,7 @@ Aplikace poslouchá hovor (s výslovným souhlasem uživatele), přepisuje ho a 
 „bezpečný účet“, časový tlak, žádost o PIN nebo kód z SMS, instalaci aplikace pro vzdálený přístup, vydávání se
 za banku, policii nebo příbuzného. Druhým cílem je poznat, že volá jiný AI agent nebo napodobený hlas blízké osoby.
 Při podezření nenápadně upozorní uživatele, navrhne kontrolní otázku a volitelně dá vědět rodině.
-- **Milníky:** nápad 15. 11. 2026 · analýza v přípravě.
+- **Milníky:** nápad 15. 11. 2026 · název ScamCatcher rezervován v App Store 16. 11. 2026 · analýza v přípravě.
 - **Hlavní otázky pro analýzu:** přístup ke zvuku hovoru (iOS ho běžným aplikacím nedává, Android nahrávání hovorů
   omezuje), souhlas s nahráváním a GDPR, zpracování přímo v telefonu kvůli soukromí.
 
