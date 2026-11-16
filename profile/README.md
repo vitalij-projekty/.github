@@ -14,8 +14,8 @@ Zdrojový kód soukromých projektů rád zpřístupním na požádání.
 | **WristRadar Phone** | telefonní verze WristRadaru, společné skupiny s hodinkami | Swift, Kotlin (sdílené jádro s hodinkami) | 🛠️ **vývoj** – testovací verze iPhone i Android hotové, smíšená skupina telefon ↔ hodinky ověřena na reálných zařízeních | [ukázka](https://github.com/Fredy1989/wristradar-showcase) |
 | **Driver Alert** | trenér bdělosti řidiče: riziko únavy ze spánku a času jízdy, hlasové kontroly, vibrace na hodinkách | Swift, Kotlin, Apple Zdraví / Health Connect | 🛠️ **vývoj** od 15. 11. 2026 – jádro (model rizika a detekce jízdy na iOS i Androidu), první verze appky pro iPhone a pro Android (sledování jízdy z GPS, ověřeno na emulátoru) | [níže](#driver-alert) |
 | **CarKeeper** *(pracovní název)* | péče o auto: hlídá STK, servis a přezutí, nabídky servisů v okolí s odhadem ceny a rezervací; AI hlasový agent domluví termín za řidiče | mobilní appka + cloud, hlasová AI (výběr dodavatele probíhá) | 📋 **analýza** hotová (15. 11. 2026) | [níže](#carkeeper) |
-| **Sportka** | stahování výsledků loterie, statistická analýza, generátor tiketů a backtest | Python | ✅ **v provozu** od 3. 6. 2026, denní automatický běh | [repo](https://github.com/vitalij-projekty/sportka) |
-| **Trading bot** | boty nad MetaTrader 5 pro prop-firmu FTMO, dashboard, série backtestů | Python, MT5, pandas | ⏸️ **pozastaveno** – výzkum uzavřen (17 hypotéz, ~290 konfigurací, bez ověřitelné hrany) | [repo](https://github.com/vitalij-projekty/trading-bot) |
+| **Sportka** | stahování výsledků loterie, statistická analýza, generátor tiketů a backtest | Python | ✅ **v provozu** od 3. 6. 2026, denní automatický běh | [níže](#sportka) |
+| **Trading bot** | boty nad MetaTrader 5 pro prop-firmu FTMO, dashboard, série backtestů | Python, MT5, pandas | ⏸️ **pozastaveno** – výzkum uzavřen (17 hypotéz, ~290 konfigurací, bez ověřitelné hrany) | [níže](#trading-bot) |
 | **ScamCatcher** *(pracovní název)* | ochrana před telefonními podvody: přepis příchozích i odchozích hovorů v reálném čase, AI průběžně hodnotí riziko podvodu a pozná i volajícího AI agenta nebo napodobený hlas | mobilní appka, přepis řeči, LLM (výběr technologie proběhne v analýze) | 💡 **nápad** – ve zpracování, příprava analýzy (od 15. 11. 2026) | [níže](#scamcatcher) |
 | **Databáze investorů** | úloha k pohovoru: návrh spolehlivé databáze investorů, pilot 43 investorů v ČR, měření přesnosti | AI rešerše, Excel/CSV | ✅ **hotovo** (10/2026) | [repo](https://github.com/Fredy1989/investor-db) |
 
@@ -53,6 +53,26 @@ Při podezření nenápadně upozorní uživatele, navrhne kontrolní otázku a 
 - **Milníky:** nápad 15. 11. 2026 · název ScamCatcher rezervován v App Store 16. 11. 2026 · analýza v přípravě.
 - **Hlavní otázky pro analýzu:** přístup ke zvuku hovoru (iOS ho běžným aplikacím nedává, Android nahrávání hovorů
   omezuje), souhlas s nahráváním a GDPR, zpracování přímo v telefonu kvůli soukromí.
+
+## Sportka
+Osobní nástroj v Pythonu: sám stahuje výsledky loterie Sportka, vede jejich archiv, statisticky je analyzuje
+(četnosti, dvojice, součty, poměry lichých/sudých), generuje sloupce na tiket a každý vygenerovaný sloupec zpětně
+vyhodnocuje proti skutečným tažením (backtest).
+- **Milníky:** v provozu od 3. 6. 2026 · denní automatický běh přes Plánovač úloh (stažení, generování, backtest,
+  commit a push změněných dat) · k 13. 11. 2026 archiv 436 tažení a 506 vygenerovaných sloupců.
+- **Zajímavé:** backtest poctivě ukázal, že frekvenční strategie nepřekonává náhodu (úspěšnost sloupce 1,4 %
+  proti teoretickým 1,86 % v rámci šumu) → přechod na „nepopulární kombinace“, které šanci nemění, ale při výhře
+  zvyšují výplatu, protože se dělí s méně lidmi.
+
+## Trading bot
+Automatizovaný a poloautomatický forex trading v Pythonu nad MetaTrader 5 pro prop-firmu FTMO: autonomní bot,
+execution tool se „stínovými pozicemi“, risk management podle pravidel FTMO, lokální webový dashboard, ovládání
+přes Telegram, watchdog na VPS a notifikace na Discord.
+- **Milníky:** autonomní bot nasazen na VPS 13. 7. 2026 · série backtestů 20.–24. 7. 2026 · ostré obchody na FTMO
+  účtu 28.–31. 7. 2026 · výzkum uzavřen, bot od 31. 7. 2026 neobchoduje.
+- **Zajímavé:** 17 hypotéz, ~290 konfigurací, až 26 let dat, vždy s rozdělením in-sample / out-of-sample a cenou
+  po spreadu a komisi. validací neprošel žádný z 29 out-of-sample segmentů; kontrolní test s uměle vloženou hranou prošel,
+  takže metodika efekty umí najít – závěr „žádná ověřitelná hrana“ je výsledek, ne slepota testu.
 
 ## Jak pracuji s AI
 - Já: produkt, rozhodnutí, testování na reálných zařízeních, komunikace s obchody (App Store, Google Play).
